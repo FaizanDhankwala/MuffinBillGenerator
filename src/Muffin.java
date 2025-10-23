@@ -1,8 +1,17 @@
 public class Muffin {
    private int price;
     private Boolean blueberry;
+    private String type="Regular Muffin";
 
 
+    public void setType(String type)
+    {
+        this.type=type;
+    }
+    public String getType()
+    {
+        return type;
+    }
 
     public Muffin(boolean blueberry) {
 
@@ -14,7 +23,15 @@ public class Muffin {
         }
         baseMuffinPrice=this.price;
     }
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
     private int extraToppingsPrice=100;
+
 
     private int extraCreamPrice=150;
 
@@ -22,17 +39,23 @@ public class Muffin {
 
     private int baseMuffinPrice;
     private int toGoPrice=10;
+    private int chocolatePrice=50;
 
 
     private boolean extraToppingsAdded=false;
     private boolean extraCreamAdded=false;
     private boolean sodaAdded =false;
     private boolean toGo=false;
+    private boolean chocolateAdded=false;
 
 
     public void addToppings(){
         extraToppingsAdded=true;
     this.price+=extraToppingsPrice;
+    }
+    public void addChocolate(){
+        chocolateAdded=true;
+        this.price+=chocolatePrice;
     }
 
     public void addCream(){
@@ -47,10 +70,12 @@ public class Muffin {
         toGo=true;
     this.price+=toGoPrice;
     }
-    private String bill= "";
 
+String bill= "";
     public void getBill(){
-        System.out.println("Muffin Base Price +$" + baseMuffinPrice );
+       bill += "Muffin type " + getType() + "\n";
+        bill += "Base Price: $" + baseMuffinPrice + "\n";
+
         if(extraCreamAdded){
             bill+= "Extra Cream: +$" + extraCreamPrice + "\n";
         }
@@ -63,6 +88,10 @@ public class Muffin {
         if(toGo){
             bill+=  "To Go: +$" + toGoPrice+ "\n";
         }
+        if(chocolateAdded){
+            bill+= "Chocolate: +$" + chocolatePrice+ "\n";
+        }
+
         bill+= "---------------------" + "\n";
         bill+= "Final Bill $" + this.price + "\n";
         System.out.println(bill);
