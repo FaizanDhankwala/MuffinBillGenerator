@@ -2,8 +2,9 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 class Main{
     public static void main(String[] args){
-        Muffin m1= new Muffin(false);
-        m1.getMuffinPrice();
+       DeluxeMuffin d1= new DeluxeMuffin(false);
+        d1.toGo();
+       d1.getBill();
     }
 
 }
